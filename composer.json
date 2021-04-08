@@ -1,0 +1,16 @@
+{
+    "name": "vowander/php-blog",
+    "description": "Blog on PHP and MYSQL",
+    "type": "project",
+    "authors": [
+        {
+            "name": "VolodymyrVi",
+            "email": "sqlphpjs@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.3"
+    }
+}
