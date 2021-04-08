@@ -4,12 +4,27 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use Blog\PostMapper;
 
 require __DIR__ . '/vendor/autoload.php';
 
 $loader = new FilesystemLoader('templates');
 $view = new Environment($loader);
 
+$config = include 'config/dtabase.php';
+$dsn = $config['dsn'];
+$username = $config['username'];
+$password = $config['password'];
+try {
+    $connection = new PDO($dsn, $username, $password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+} catch (PDOException $exception) {
+    echo 'Database Error: ' . $exception->getMessage();
+    die();
+}
+
+$postMapper = new PostMapper($connection);
 $app = AppFactory::create();
 
 $app->get('/', function (Request $request, Response $response, $args) use ($view) {

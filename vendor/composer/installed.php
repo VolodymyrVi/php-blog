@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '59cbe37bc522737890a6bcb94aedaa661c355fd6',
+    'reference' => 'fae6e03556c5bede53e1194e0618797c04ce5f77',
     'name' => 'vowander/php-blog',
   ),
   'versions' => 
@@ -167,7 +167,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '59cbe37bc522737890a6bcb94aedaa661c355fd6',
+      'reference' => 'fae6e03556c5bede53e1194e0618797c04ce5f77',
     ),
   ),
 );
