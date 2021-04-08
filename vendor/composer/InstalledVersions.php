@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '7ee5c6a59cd9918b68c94b82ad054a88f79b41e7',
+    'reference' => '59cbe37bc522737890a6bcb94aedaa661c355fd6',
     'name' => 'vowander/php-blog',
   ),
   'versions' => 
@@ -148,6 +148,24 @@ private static $installed = array (
       ),
       'reference' => '0905e0775f8c1cfb3bbcfabeb6588dcfd8b82d3f',
     ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c6c942b1ac76c82448322025e084cadc56048b4e',
+    ),
+    'symfony/polyfill-mbstring' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5232de97ee3b75b0360528dae24e73db49566ab1',
+    ),
     'symfony/polyfill-php80' => 
     array (
       'pretty_version' => 'v1.22.1',
@@ -157,6 +175,15 @@ private static $installed = array (
       ),
       'reference' => 'dc3063ba22c2a1fd2f45ed856374d79114998f91',
     ),
+    'twig/twig' => 
+    array (
+      'pretty_version' => 'v3.3.0',
+      'version' => '3.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5',
+    ),
     'vowander/php-blog' => 
     array (
       'pretty_version' => 'dev-main',
@@ -164,7 +191,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '7ee5c6a59cd9918b68c94b82ad054a88f79b41e7',
+      'reference' => '59cbe37bc522737890a6bcb94aedaa661c355fd6',
     ),
   ),
 );
