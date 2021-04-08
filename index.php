@@ -11,7 +11,8 @@ require __DIR__ . '/vendor/autoload.php';
 $loader = new FilesystemLoader('templates');
 $view = new Environment($loader);
 
-$config = include 'config/dtabase.php';
+$config = include 'config/database.php';
+
 $dsn = $config['dsn'];
 $username = $config['username'];
 $password = $config['password'];
@@ -25,6 +26,8 @@ try {
 }
 
 $postMapper = new PostMapper($connection);
+
+// Create map
 $app = AppFactory::create();
 
 $app->get('/', function (Request $request, Response $response, $args) use ($view) {
@@ -41,10 +44,16 @@ $app->get('/about', function (Request $request, Response $response, $args) use (
     return $response;
 });
 
-$app->get('/{url_key}', function (Request $request, Response $response, $args) use ($view) {
+$app->get('/{url_key}', function (Request $request, Response $response, $args) use ($view, $postMapper) {
+    $post = $postMapper->getByUrlKey((string) $args['url_key']);
+    
+    if(empty($post)){
+        $body = $view->render('not-found.twig');
+    } else {
     $body = $view->render('post.twig', [
-        'url_key' => $args['url_key']
+        'post' => $post
     ]);
+    }
     $response->getBody()->write($body);
     return $response;
 });
