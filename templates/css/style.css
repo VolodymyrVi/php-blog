@@ -12,7 +12,6 @@ body a {
 	-ms-transition: 0.5s all;
 	text-decoration: none;
 }
-/*-- //Reset Code --*/
 body{
 	background:url('../images/16.jpg') no-repeat 0px 0px;
 	background-size:cover;
