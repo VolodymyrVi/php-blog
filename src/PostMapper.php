@@ -38,22 +38,25 @@ class PostMapper
 
         return array_shift($result);
     }
-    /**
-     * Undocumented function
-     *
-     * @return array|null
-     */
-    public function getList(string $direction): ?array
+   /**
+    * @param integer $page
+    * @param integer $limit
+    * @param string $direction
+    * @return array|null
+    * @throws Exception
+    */
+    public function getList(int $page = 1, int $limit = 5, string $direction = 'ASC'): ?array
     {
         if (!in_array($direction, ['DESC', 'ASC'])) {
             throw new Exception('The direction is not supported.');
         }
-
+        $start = ($page - 1) * $limit;
         $statement = $this->connection->prepare(
-            'SELECT * FROM post ORDER BY published_date ' . $direction);
+            'SELECT * FROM post ORDER BY published_date ' . $direction . 
+            ' LIMIT ' . $start . ',' . $limit 
+        );
         $statement->execute();
 
         return $statement->fetchAll();
     }
-
 }
