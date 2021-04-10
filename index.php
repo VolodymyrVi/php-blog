@@ -7,11 +7,13 @@ use Slim\Factory\AppFactory;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use Blog\PostMapper;
+use Blog\Slim\TwigMiddleware;
 
 require __DIR__ . '/vendor/autoload.php';
 
 $loader = new FilesystemLoader('templates');
 $view = new Environment($loader);
+
 
 $config = include 'config/database.php';
 
@@ -30,6 +32,8 @@ try {
 
 // Create map
 $app = AppFactory::create();
+
+$app->add(new TwigMiddleware($view));
 
 $app->get('/', function (Request $request, Response $response) use ($view, $connection) {
     $latestPosts = new LatestPosts($connection);
